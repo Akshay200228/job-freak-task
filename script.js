@@ -13,3 +13,9 @@ const showContent = (contentId) => {
 
 // Set default content to 'Home'
 document.getElementById('home').style.display = 'block';
+
+
+// Open the Personal Portfolio in a new tab
+function openFacebookPage(pageUrl) {
+    window.open(pageUrl);
+}
