@@ -98,10 +98,6 @@
     transition: background-color 0.3s ease;
 }
 
-.left-panel ul li:first-child:hover {
-    background-color: #aba6a6;
-}
-
 /* Content */
 .content {
     flex: 1;
@@ -146,63 +142,214 @@
     }
 }
 
-/* Responsive Mobile View */
+/* Responsive Styles */
+
+/* Tablets and larger screens */
+@media only screen and (min-width: 768px) {
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .navbar-left,
+    .navbar-right {
+        flex-direction: row;
+    }
+
+    .navbar-center {
+        text-align: center;
+    }
+
+    .navbar-center ul li {
+        margin-right: 10px;
+    }
+
+    .main-content {
+        flex-direction: row;
+    }
+
+    .left-panel {
+        width: 200px;
+        height: calc(100vh - 50px);
+    }
+
+    .left-panel ul li:first-child {
+        padding: 20px 10px;
+    }
+
+    .content {
+        margin-top: 4px;
+        height: calc(100vh - 90px);
+    }
+}
+
+/* Mobile devices */
 @media only screen and (max-width: 767px) {
     .navbar {
-        /* Adjust the navbar styles for mobile view */
         position: static;
         backdrop-filter: none;
     }
 
     .navbar-container {
-        /* Adjust the container styles for mobile view */
         flex-direction: column;
     }
 
     .navbar-left,
     .navbar-right {
-        /* Adjust the alignment styles for mobile view */
-        flex-direction: row;
-        justify-content: flex-end;
+        flex-direction: column;
+        align-items: center;
     }
 
     .navbar-center {
-        /* Adjust the center alignment for mobile view */
         margin-top: 10px;
         text-align: center;
     }
 
     .navbar-center ul li {
-        /* Adjust the list item styles for mobile view */
         margin-right: 0;
         margin-bottom: 10px;
     }
 
     .navbar-button {
-        /* Adjust the button styles for mobile view */
         margin-right: 0;
     }
 
     .main-content {
-        /* Adjust the main content styles for mobile view */
         flex-direction: column;
         margin-top: 20px;
     }
 
     .left-panel {
-        /* Adjust the left panel styles for mobile view */
         width: 100%;
         height: auto;
     }
 
     .left-panel ul li:first-child {
-        /* Adjust the first list item styles for mobile view */
         padding: 10px;
     }
 
     .content {
-        /* Adjust the content styles for mobile view */
         margin-top: 20px;
         height: auto;
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media only screen and (max-width: 767px) {
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .sidebar .logo_details,
+    .sidebar li.profile {
+        display: none;
+    }
+
+    .sidebar.open .logo_details,
+    .sidebar.open li.profile {
+        display: flex;
+    }
+
+    .sidebar li {
+        margin: 10px 0;
+    }
+
+    .sidebar input {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .sidebar.open input {
+        padding: 0 35px;
+    }
+
+    .sidebar li a::after {
+        content: none;
+    }
+
+    .sidebar li a .link_name,
+    .sidebar li.profile .name,
+    .sidebar li.profile .designation {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .sidebar li i {
+        font-size: 22px;
+    }
+
+    .sidebar.open~.home-section {
+        left: 0;
+        width: 100%;
+    }
+
+    /* Adjustments for the home-section */
+    .home-section {
+        padding: 20px;
+    }
+
+    .home-section .text {
+        margin: 10px;
+    }
+}
+
+/* Media Query for Tablets and Small Desktop Screens */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .sidebar {
+        width: 100px;
+    }
+
+    .sidebar .logo_details .logo_name {
+        opacity: 1;
+    }
+
+    .sidebar .nav-list {
+        margin-top: 60px;
+    }
+
+    .sidebar li a .link_name {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .sidebar.open .logo_details .icon,
+    .sidebar.open .logo_details .logo_name {
+        opacity: 0;
+    }
+
+    .sidebar.open li a .link_name {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .sidebar.open li .tooltip {
+        display: none;
+    }
+
+    .sidebar li.profile {
+        width: 100%;
+        padding: 20px;
+        bottom: auto;
+        left: 0;
+        top: 0;
+        transform: none;
+    }
+
+    .sidebar.open li.profile {
+        width: 250px;
+    }
+
+    .sidebar .profile #log_out {
+        width: 100%;
+    }
+
+    .sidebar.open .profile #log_out {
+        width: 50px;
+        background: var(--color-second);
+    }
+
+    .sidebar.open~.home-section {
+        left: 100px;
+        width: calc(100% - 100px);
     }
 }

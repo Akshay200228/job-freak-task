@@ -15,6 +15,7 @@ const showContent = (contentId) => {
 document.getElementById('home').style.display = 'block';
 
 
+
 // Open the Personal Portfolio in a new tab
 function openFacebookPage(pageUrl) {
     window.open(pageUrl);
